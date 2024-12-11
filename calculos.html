@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>calculos</title>
+</head>
+<body>
+    <span class="titulo-menu">Calculadora</span>
+
+    <div id="div-menu">
+        <div class="menu-c">
+            <span class="titulo">
+                Equações
+            </span>
+            <div class="input-div">
+                <input type="number" id="a" placeholder="A">
+                <input type="number" id="b" placeholder="B">
+                <input type="number" id="r" placeholder="Raio">
+            </div>
+            <div class="botoes">
+                <input type="button" onclick="Geral()" value="Geral">
+                <input type="button" onclick="Reduzida()" value="Reduzida">
+            </div>
+            
+            <div class="mostrar" id="1"></div>
+        </div>
+
+        <div class="menu-c">
+            <span class="titulo">
+                Posição relativa entre a circunferência e um ponto
+            </span>
+            <div class="input-div">
+                <input type="number" id="a-ponto" placeholder="A">
+                <input type="number" id="b-ponto" placeholder="B">
+                <input type="number" id="r-ponto" placeholder="Raio">
+                <input type="number" id="x-ponto" placeholder="X do ponto">
+                <input type="number" id="y-ponto" placeholder="Y do ponto">
+            </div>
+            <div class="botoes">
+                <input type="button" onclick="Ponto()" value="Calcular">
+            </div>
+
+            <div class="mostrar" id="2"></div>
+        </div>
+
+        <div class="menu-c">
+            <span class="titulo">
+                Posição relativa entre a circunferência e uma reta
+            </span>
+            <div class="input-div">
+                <input type="number" id="a-reta" placeholder="A da reta">
+                <input type="number" id="b-reta" placeholder="B da reta">
+                <input type="number" id="c-reta" placeholder="C da reta">
+                <input type="number" id="x-reta" placeholder="X do centro">
+                <input type="number" id="y-reta" placeholder="Y do centro">
+                <input type="number" id="r-reta" placeholder="Raio">
+            </div>
+            <div class="botoes">
+                <input type="button" onclick="Reta()" value="Calcular">
+            </div>
+
+            <div class="mostrar" id="3"></div>
+        </div>
+    </div>
+    
+</body>
+
+<script>
+    function Geral() {
+        let a = document.getElementById("a").value;
+        let b = document.getElementById("b").value;
+        let r = document.getElementById("r").value;
+        let div = document.getElementById(1);
+        
+        div.innerHTML = `<span>Equação Geral: x² + y² – 2(${a})x – 2(${b})y + (${a}²) + (${b}²) – (${r}²) = 0<span>`;
+    };
+
+    function Reduzida() {
+        let a = document.getElementById("a").value;
+        let b = document.getElementById("b").value;
+        let r = document.getElementById("r").value;
+        let div = document.getElementById(1);
+        
+        div.innerHTML = `<span>Equação Reduzida: (x-(${a}))² + (y-(${b}))² = (${r}²)<span>`;
+    };
+
+    function Ponto() {
+        let a = -(document.getElementById("a-ponto").value);
+        let b = -(document.getElementById("b-ponto").value);
+        let r = Number(document.getElementById("r-ponto").value);
+        let x = Number(document.getElementById("x-ponto").value);
+        let y = Number(document.getElementById("y-ponto").value);
+        let div = document.getElementById(2);
+
+        console.log(a,b,r,x,y)
+
+        let distancia = (x-a)**2 + (y-b)**2 - r**2;
+        
+        if (distancia > 0) {
+            div.innerHTML = `<span>Resultado é: ${distancia}, ou seja, o ponto é externo a circunfêrencia</span>`;
+        } else if (distancia == 0) {
+            div.innerHTML = `<span>Resultado é: ${distancia}, ou seja, o ponto é pertencente a circunfêrencia</span>`;
+        } else if (distancia < 0) {
+            div.innerHTML = `<span>Resultado é: ${distancia}, ou seja, o ponto é interno a circunfêrencia</span>`;
+        }
+    };
+    
+    function Reta() {
+        let a = Number(document.getElementById("a-reta").value);
+        let b = Number(document.getElementById("b-reta").value);
+        let c = Number(document.getElementById("c-reta").value);
+        let x = Number(document.getElementById("x-reta").value);
+        let y = Number(document.getElementById("y-reta").value);
+        let r = Number(document.getElementById("r-reta").value);
+        //a=2, b=1, c=-2, x=1, y=5, r=Math.sqrt(5);
+        let div = document.getElementById(3);
+
+        console.log(a,b,c,x,y,r);
+
+        let distancia = (Math.abs(((a*x) + (b*y) + c)/(Math.sqrt(a**2 + b**2)))).toFixed(2);
+        console.log(distancia);
+        //(Math.abs(((a*x) + (b*y) + c)/(Math.sqrt(a**2 + b**2)))).toFixed(2)
+
+        if (distancia > 0) {
+            div.innerHTML = `<span>Resultado é: ${distancia}, ou seja, a reta é exterior a circunfêrencia</span>`;
+        } else if (distancia == 0) {
+            div.innerHTML = `<span>Resultado é: ${distancia}, ou seja, a reta é tangente a circunfêrencia</span>`;
+        } else if (distancia < 0) {
+            div.innerHTML = `<span>Resultado é: ${distancia}, ou seja, a reta é secante a circunfêrencia</span>`
+        }
+    };
+
+</script>
+</html>

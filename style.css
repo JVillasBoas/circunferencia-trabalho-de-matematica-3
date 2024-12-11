@@ -1,0 +1,113 @@
+#body-home {
+    background-color: #D4F6FF;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    background-color: #D4F6FF;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#menu {
+    background-color: #FBFBFB;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 3rem;
+    border-radius: 0.5rem;
+    margin: 10%;
+}
+
+.botoes {
+    display: flex;
+    justify-content: space-around;
+}
+
+input[type="button"] {
+    background-color: #FFDDAE;
+    border-width: 0;
+    border-radius: 0.5rem;
+    color:  white;
+    padding: 1.5rem;
+    font-size: 1rem;
+}
+
+input[type="button"]:hover {
+    background-color: #f3c98e;
+    color: white;
+    cursor: pointer;
+}
+
+.titulo-menu {
+    color: #53b3f8;
+    padding: 1rem;
+    font-size: 2.5rem;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center; 
+}
+
+.titulo {
+    color: #8fcffd;
+    padding: 1rem;
+    font-size: 2rem;
+    font-weight: bolder; 
+}
+
+.equacao {
+    margin: 7rem;
+}
+
+.menu-t {
+    background-color: #FBFBFB;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 3rem;
+    border-radius: 0.5rem;
+    margin: 2%;
+    transition: scale 0.5s;
+}
+
+.menu-t:hover {
+    cursor: pointer;
+    scale: 1.05;
+}
+
+#div-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.menu-c {
+    background-color: #FBFBFB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin: 2%;
+    transition: scale 0.5s;
+}
+
+.menu-c:hover {
+    cursor: pointer;
+    scale: 1.05;
+}
+
+.texto {
+    font-size: 1.2rem;
+}
+
+#equacoes {
+    display: flex;
+    flex-direction: row;
+}
